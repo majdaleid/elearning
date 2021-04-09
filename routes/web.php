@@ -44,6 +44,7 @@ Route::get('/blog','App\Http\Controllers\ClientController@blog');
 Route::get('/contact','App\Http\Controllers\ClientController@contact');
 Route::get('/cart','App\Http\Controllers\ClientController@cart');
 Route::get('/coursedetails','App\Http\Controllers\ClientController@coursedetails');
+adadsa da
 
 Route::post('/contact','App\Http\Controllers\ClientController@savecontact')->name('savecontact');
 //Route::get('/checkout','App\Http\Controllers\ClientController@checkout');
