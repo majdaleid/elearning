@@ -8,6 +8,7 @@ use Session;
 use App\Models\Order;
 use App\Models\contact;
 use Auth;
+use App\Models\Course;
 class ClientController extends Controller
 {
 
@@ -25,9 +26,15 @@ class ClientController extends Controller
       return view('client.pricing');
     }
 
-    public function courses(){
-      return view('client.courses');
+    public function allcourses()
+    {
+      $courses=Course::get();
+    return view('client.courses')->with('courses',$courses);
     }
+
+  /*  public function courses(){
+      return view('client.courses');
+    }*/
 
     public function blog(){
       return view('client.blog');
@@ -44,8 +51,9 @@ class ClientController extends Controller
     }
 
 
-    public function coursedetails(){
-      return view('client.coursedetails');
+    public function coursedetails($id){
+      $course=Course::find($id);
+      return view('client.coursedetails')->with('course',$course);
     }
 
     public function savecontact(Request $request){

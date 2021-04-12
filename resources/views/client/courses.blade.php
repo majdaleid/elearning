@@ -81,42 +81,17 @@ courses
 	<div id="fh5co-project">
 		<div class="container-fluid proj-bottom">
 			<div class="row">
+				@foreach($courses as $course)
 				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="/frontend/images/project-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Web Master</h3>
-						<span>View Course</span>
+					<a href="coursedetails/{{$course->id}}"><img src="/frontend/images/project-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<h3>{{$course->courseName}} </h3>
+						<span>View Course<a href="coursedetails/{{$course->id}}"></a></span>
 					</a>
 				</div>
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="/frontend/images/project-2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Virtual Assistant</h3>
-						<span>View Course</span>
-					</a>
-				</div>
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="/frontend/images/project-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Read Bible</h3>
-						<span>View Course</span>
-					</a>
-				</div>
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="/frontend/images/project-9.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Programming</h3>
-						<span>View Course</span>
-					</a>
-				</div>
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="/frontend/images/project-5.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Technician</h3>
-						<span>View Course</span>
-					</a>
-				</div>
-				<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-					<a href="#"><img src="/frontend/images/project-6.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-						<h3>Photography</h3>
-						<span>View Course</span>
-					</a>
-				</div>
+        @endforeach
+
+
+
 			</div>
 		</div>
 		<div class="container">

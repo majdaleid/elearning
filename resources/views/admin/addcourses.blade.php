@@ -1,3 +1,4 @@
+
 @extends('layouts.appadmin')
 @section('content')
 
@@ -28,9 +29,15 @@
                                 &lt;p&gt;This is some sample content.&lt;/p&gt;
                             </textarea>
                       -->
+
 <label for="cname">Description 1 </label>
                   <input id="cname" class="form-control" name="courseDescription1"  type="text" required>
 
+                 <label> Description2 </label>
+
+                  <div class="form-group">
+                  <textarea class="form-control" id="description2" placeholder="Enter the description2" name="description2"></textarea>
+                    </div>
                             <label for="cname">course image</label>
                             <input id="cname" class="form-control" name="courseImage"   type="file" required>
 
@@ -56,5 +63,26 @@
                console.error( error );
            } );
    </script>-->
-<script src="backend/js/bt-maxLength.js"></script>
+   <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   <script>
+       CKEDITOR.replace('description2', {
+           filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+           filebrowserUploadMethod: 'form'
+       });
+       </script>
+
+
+
+
+   <script>
+          ClassicEditor
+             .create( document.querySelector( '#description2' ) )
+              .catch( error => {
+                 console.error( error );
+               } );
+       </script>
+ <script src="backend/js/bt-maxLength.js"></script>
+
+
 @endsection

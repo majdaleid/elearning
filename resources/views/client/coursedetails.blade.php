@@ -13,7 +13,7 @@
 #box-container{
 
 display:flex;
- 
+
 justify-content: space-around;
     flex-wrap: wrap;
 }
@@ -260,11 +260,49 @@ display:flex;
 	height:8px;
 	background:var(--primary);
 }
-
+/*mobiles*/
 @media screen  and (max-device-width: 480px) {
   body {background:red;}
   #box-2{order:-1;}
+
+  img {
+    margin-left: -30%;
+    width: 154%;
+    margin-top: 10%;
+  }
 }
+
+/*tablet*/
+@media (min-width: 481px) and (max-width: 767px) {
+
+
+
+ #box-container {
+  display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+  #box-2{
+    padding-left:27%;
+  }
+  #overview{
+    padding-left:20%;
+  }
+  #curriculum{
+    padding-left:20%;
+  }
+  #instructor{
+    padding-left:20%;
+  }
+.col-md-12 col-lg-8{
+  padding-left: 10%;
+}
+.ttr-post-text{
+  padding-left:10%;
+}
+}
+
 </style>
 @extends('layouts.app2')
 @section('title')
@@ -292,11 +330,14 @@ sss
 <div id="box-1">
     <div class="courses-post">
               <div class="ttr-post-media media-effect">
-                <a href="#"><img src="/frontend/coursedetails/assets/images/blog/default/thum1.jpg" alt=""></a>
+                <a href="#">
+                  <!--<img src="/frontend/coursedetails/assets/images/blog/default/thum1.jpg" alt=""> -->
+                  <img src="http://localhost/elearning/storage/app/public/courseImages/{{$course->courseImage}}" alt="" style="width:89%;">
+                </a>
               </div>
               <div class="ttr-post-info">
                 <div class="ttr-post-title ">
-                  <h2 class="post-title">Nvidia and UE4 Technologies Practice</h2>
+                  <h2 class="post-title">{{$course->courseName}}</h2>
                 </div>
                 <div class="ttr-post-text">
                   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
@@ -318,8 +359,10 @@ sss
                   </ul>
                 </div>
                 <div class="col-md-12 col-lg-8">
-                  <h5 class="m-b5">Course Description</h5>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+               <h5 class="m-b5">Course Description</h5>
+                 {!! $course->description2 !!}
+                  <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                   <h5 class="m-b5">Certification</h5>
                   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                   <h5 class="m-b5">Learning Outcomes</h5>
@@ -332,7 +375,7 @@ sss
                     <li>Course content designed by considering current software testing technology and the job market.</li>
                     <li>Practical assignments at the end of every session.</li>
                     <li>Practical learning experience with live project work and examples.cv</li>
-                  </ul>
+                  </ul>-->
                 </div>
               </div>
             </div>
@@ -422,10 +465,12 @@ sss
                   <p class="m-b0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
                 </div>
               </div>
+              <!--
               <div class="instructor-bx">
                 <div class="instructor-author">
                   <img src="assets/images/testimonials/pic2.jpg" alt="">
                 </div>
+
                 <div class="instructor-info">
                   <h6>Keny White </h6>
                   <span>Professor</span>
@@ -437,8 +482,9 @@ sss
                   </ul>
                   <p class="m-b0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
                 </div>
-              </div>
+              </div>-->
             </div>
+            <!--
             <div class="" id="reviews">
               <h4>Reviews</h4>
 
@@ -523,14 +569,14 @@ sss
                 </div>
               </div>
             </div>
-
+-->
 
 </div>
 <div id="box-2">
             <div class="course-detail-bx">
               <div class="course-price">
-                <del>$190</del>
-                <h4 class="price">$120</h4>
+                <del><!--$190--></del>
+                <h4 class="price">${{$course->coursePrice}}</h4>
               </div>
               <div class="course-buy-now text-center">
                 <a href="#" class="btn radius-xl text-uppercase">Buy Now This Courses</a>

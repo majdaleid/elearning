@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset('backend/images/logo_2H_tech.png')}}" />
+
 </head>
 <body>
   <div class="container-scroller">
@@ -71,6 +72,7 @@
 <script src="{{asset('backend/js/template.js')}}"></script>
 <script src="{{asset('backend/js/settings.js')}}"></script>
 <script src="{{asset('backend/js/todolist.js')}}"></script>
+
 <!-- endinject -->
 <!-- Custom js for this page-->
 @yield('scripts')

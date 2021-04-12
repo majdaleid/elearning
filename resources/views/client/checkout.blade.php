@@ -31,21 +31,21 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     	<!-- Animate.css -->
-    	<link rel="stylesheet" href="/frontend/css/animate.css">
+    	<link rel="stylesheet" href="{{asset('/frontend/css/animate.css')}}">
     	<!-- Icomoon Icon Fonts-->
-    	<link rel="stylesheet" href="/frontend/css/icomoon.css">
+    	<link rel="stylesheet" href="{{asset('/frontend/css/icomoon.css')}}">
     	<!-- Bootstrap  -->
-    	<link rel="stylesheet" href="/frontend/css/bootstrap.css">
+    	<link rel="stylesheet" href="{{asset('/frontend/css/bootstrap.css')}}">
 
     	<!-- Magnific Popup -->
-    	<link rel="stylesheet" href="/frontend/css/magnific-popup.css">
+    	<link rel="stylesheet" href="{{asset('/frontend/css/magnific-popup.css')}}">
 
     	<!-- Owl Carousel  -->
-    	<link rel="stylesheet" href="/frontend/css/owl.carousel.min.css">
-    	<link rel="stylesheet" href="/frontend/css/owl.theme.default.min.css">
+    	<link rel="stylesheet" href="{{asset('/frontend/css/owl.carousel.min.css')}}">
+    	<link rel="stylesheet" href="{{asset('/frontend/css/owl.theme.default.min.css')}}">
 
     	<!-- Theme style  -->
-    	<link rel="stylesheet" href="/frontend/css/style.css">
+    	<link rel="stylesheet" href="{{asset('/frontend/css/style.css')}}">
 
     	<!-- Modernizr JS -->
     	<script src="/frontend/js/modernizr-2.6.2.min.js"></script>
@@ -57,24 +57,24 @@
    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
 
-   <link rel="stylesheet" href="frontendCardCheckout/css/open-iconic-bootstrap.min.css">
-   <link rel="stylesheet" href="frontendCardCheckout/css/animate.css">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/open-iconic-bootstrap.min.css')}}">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/animate.css')}}">
 
-   <link rel="stylesheet" href="frontendCardCheckout/css/owl.carousel.min.css">
-   <link rel="stylesheet" href="frontendCardCheckout/css/owl.theme.default.min.css">
-   <link rel="stylesheet" href="frontendCardCheckout/css/magnific-popup.css">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/owl.carousel.min.css')}}">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/owl.theme.default.min.css')}}">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/magnific-popup.css')}}">
 
-   <link rel="stylesheet" href="frontendCardCheckout/css/aos.css">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/aos.css')}}">
 
-   <link rel="stylesheet" href="frontendCardCheckout/css/ionicons.min.css">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/ionicons.min.css')}}">
 
-   <link rel="stylesheet" href="frontendCardCheckout/css/bootstrap-datepicker.css">
-   <link rel="stylesheet" href="frontendCardCheckout/css/jquery.timepicker.css">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/bootstrap-datepicker.css')}}">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/jquery.timepicker.css')}}">
 
 
-   <link rel="stylesheet" href="frontendCardCheckout/css/flaticon.css">
-   <link rel="stylesheet" href="frontendCardCheckout/css/icomoon.css">
-   <link rel="stylesheet" href="frontendCardCheckout/css/style.css">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/flaticon.css')}}">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/icomoon.css')}}">
+   <link rel="stylesheet" href="{{asset('frontendCardCheckout/css/style.css')}}">
    <link rel="stylesheet"
        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -343,6 +343,8 @@
                             data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
                             id="stripe-payment">
                              @csrf
+                             <input type="hidden" id="custId" name="id" value="{{$course->id}}">
+
                              <div class='form-row row'>
                                       <div class='col-xs-12 form-group required'>
                                           <label class='control-label'>Name on Card</label> <input class='form-control'
@@ -448,27 +450,21 @@
               <div class="col-md-5">
                   <div class="right border">
                       <div class="header">Order Summary</div>
-                      <p>2 items</p>
+                      <p>1 item:{{$course->courseName}} </p>
+
                       <div class="row item">
-                          <div class="col-4 align-self-center"><img class="img-fluid" src="https://i.imgur.com/79M6pU0.png"></div>
+                          <div class="col-4 align-self-center"><img class="img-fluid" src="http://localhost/elearning/storage/app/public/courseImages/{{$course->courseImage}}"></div>
                           <div class="col-8">
-                              <div class="row"><b>$ 26.99</b></div>
-                              <div class="row text-muted">Be Legandary Lipstick-Nude rose</div>
+                              <div class="row"><b>$ {{$course->coursePrice}}</b></div>
+                              <div class="row text-muted">{{$course->courseDescription1}}</div>
                               <div class="row">Qty:1</div>
                           </div>
                       </div>
-                      <div class="row item">
-                          <div class="col-4 align-self-center"><img class="img-fluid" src="https://i.imgur.com/Ew8NzKr.jpg"></div>
-                          <div class="col-8">
-                              <div class="row"><b>$ 19.99</b></div>
-                              <div class="row text-muted">Be Legandary Lipstick-Sheer Navy Cream</div>
-                              <div class="row">Qty:1</div>
-                          </div>
-                      </div>
+
                       <hr>
                       <div class="row lower">
                           <div class="col text-left">Subtotal</div>
-                          <div class="col text-right">$ 46.98</div>
+                          <div class="col text-right">$ {{$course->coursePrice}}</div>
                       </div>
                       <div class="row lower">
                           <div class="col text-left">Delivery</div>
@@ -476,7 +472,7 @@
                       </div>
                       <div class="row lower">
                           <div class="col text-left"><b>Total to pay</b></div>
-                          <div class="col text-right"><b>$ 46.98</b></div>
+                          <div class="col text-right"><b>$ {{$course->coursePrice}}</b></div>
                       </div>
                       <div class="row lower">
                           <div class="col text-left"><a href="#"><u>Add promo code</u></a></div>

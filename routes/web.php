@@ -37,14 +37,14 @@ Route::get('locale/{locale}', function ($locale){
 
 
 
-Route::get('/allcourses','App\Http\Controllers\ClientController@courses');
+Route::get('/allcourses','App\Http\Controllers\ClientController@allcourses');
 Route::get('/pricing','App\Http\Controllers\ClientController@pricing');
 Route::get('/courses','App\Http\Controllers\ClientController@courses');
 Route::get('/blog','App\Http\Controllers\ClientController@blog');
 Route::get('/contact','App\Http\Controllers\ClientController@contact');
 Route::get('/cart','App\Http\Controllers\ClientController@cart');
-Route::get('/coursedetails','App\Http\Controllers\ClientController@coursedetails');
-adadsa da
+Route::get('/coursedetails/{id}','App\Http\Controllers\ClientController@coursedetails');
+
 
 Route::post('/contact','App\Http\Controllers\ClientController@savecontact')->name('savecontact');
 //Route::get('/checkout','App\Http\Controllers\ClientController@checkout');
@@ -79,7 +79,8 @@ Route::post('/checkout/transaction', [PaymentController::class, 'makePayment'])-
 */
 Route::group(['middleware' => 'auth'], function(){
 
-  Route::get('/checkout', [PaymentController::class, 'checkout']);
+  //Route::get('/checkout', [PaymentController::class, 'checkout']);
+    Route::get('/checkout/{id?}', [PaymentController::class, 'checkout']);
   Route::post('/checkout/transaction', [PaymentController::class, 'makePayment'])->name('make-payment');
 
 });
@@ -103,6 +104,10 @@ Route::group(['middleware' => 'auth'], function(){
 
   Route::get('/courses','App\Http\Controllers\CourseController@courses');
   Route::get('/slides','App\Http\Controllers\SliderController@sliders');
+
+
+  //ckeditor
+  Route::post('upload_image','App\Http\Controllers\@uploadImage')->name('upload');
 
 
 

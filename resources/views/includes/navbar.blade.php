@@ -27,23 +27,23 @@
         <div class="col-xs-11 text-right menu-1">
           <ul>
             <li class="active">
-                <a href="home">
+                <a href="/home">
               {{__('home.home')}}
             </a>
           </li>
             <li>
 
-                    <a href="allcourses">
+                    <a href="/allcourses">
                 {{__('home.courses')}}
               </a>
             </li>
             <li>
-              <a href="pricing">
+              <a href="/pricing">
                 {{__('home.pricing')}}
               </a>
             </li>
             <li class="has-dropdown">
-              <a href="blog">
+              <a href="/blog">
                 {{__('home.blog')}}
               </a>
 
