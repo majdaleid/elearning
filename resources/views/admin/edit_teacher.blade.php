@@ -16,31 +16,22 @@
           {{Session::get('status1')}}
         </div>
         @endif
-        <form method="post" action="{{route('updatecourse')}}" enctype="multipart/form-data">
-             <input type="hidden" id="custId" name="id" value="{{$course->id}}}">
+        <form method="post" action="{{route('updateteacher')}}" enctype="multipart/form-data">
                    {{csrf_field()}}
+                      <input type="hidden" id="custId" name="id" value="{{$teacher->id}}}">
                       <div class="form-group">
-                        <label for="cname">course Name</label>
-                          <input id="cname" class="form-control" name="courseName" minlength="2" type="text" value="{{$course->courseName}}"  required>
-                          <label for="cname">course price</label>
-                          <input id="cname" class="form-control" name="coursePrice" minlength="2" type="text" value="{{$course->coursePrice}}" required>
+                        <label for="cname">teacherName</label>
+                          <input id="cname" class="form-control" name="teacherName" minlength="2" type="text" value="{{$teacher->teacherName}}"  required>
 
-                  <!--      <textarea name="content" id="courseDescription1">
-                                &lt;p&gt;This is some sample content.&lt;/p&gt;
-                            </textarea>
-                      -->
 
-<label for="cname">Description 1 </label>
-                  <input id="cname" class="form-control" name="courseDescription1"  type="text" value="{{$course->courseDescription1}}" required>
-
-                 <label> Description2 </label>
+                 <label> description </label>
 
                   <div class="form-group">
-                  <textarea class="form-control" id="description2" placeholder="Enter the description2" name="description2">   {!! $course->description2 !!}</textarea>
+                  <textarea class="form-control" id="description" placeholder="Enter the description2" name="description">  {!! $teacher->description !!}</textarea>
                     </div>
-                    <label for="cname">course image</label>
-                      <input id="cname" class="form-control" name="courseImage"   type="file" value="{{$course->courseImage}}" required>
-                       {{$course->courseImage}}
+                    <label for="cname">teacher image</label>
+                      <input id="cname" class="form-control" name="teacherImage"   type="file" value="{{$teacher->teacherImage}}" required>
+                       {{$teacher->teacherImage}}
                        <!--<label for="cname">choose the teacher</label>
                       <select id="cars" name="product_category" class="form-control" >
                         <option value=""> </option>

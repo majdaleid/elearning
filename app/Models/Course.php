@@ -14,4 +14,8 @@ class Course extends Model
        "description",
        "description2",
    ];*/
+   public function teacher()
+   {
+     return $this->belongsTo(Teacher::class);
+   }
 }

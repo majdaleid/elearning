@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Teacher;
 
 class AdminController extends Controller
 {
@@ -12,7 +13,9 @@ class AdminController extends Controller
 
     public function addcourses(){
     //  dd(33);
-      return view('admin.addcourses');
+  //  $Teachers=Teacher::All()->pluck('teacherName','teacherName');
+      $Teachers=Teacher::All();
+      return view('admin.addcourses')->with('teachers',$Teachers);
     }
 
     public function addteacher(){

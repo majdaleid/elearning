@@ -43,7 +43,7 @@ return view('admin.courses')->with('courses',$courses);
     public function savecourse(Request $request)
     {
 
-
+//dd($request);
       $this->validate($request,[
                     'courseName'=>'required',
                     'coursePrice'  =>'required',
@@ -80,6 +80,7 @@ return view('admin.courses')->with('courses',$courses);
                   $course->coursePrice=$request->input('coursePrice');
                   $course->courseDescription1=$request->input('courseDescription1');
                   $course->description2=$request->input('description2');
+                  $course->teacher_id=$request->input('teacher_id');
                   $course->courseImage=$fileNameToStore;
 
 

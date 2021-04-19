@@ -16,26 +16,24 @@ courses
             <thead>
               <tr>
                   <th> number #</th>
-                  <th>Description1</th>
-                  <th>Description2</th>
-                  <th>slider_image</th>
-                  <th>Description3</th>
-                  <th>slider_image2</th>
-                  <th>Description4</th>
-                  <th>slider_image3</th>
+                  <th>Description 1 </th>
+                  <th>Description 2</th>
+                  <th>sliderImage</th>
+                  <th>Description 3</th>
+                  <th>sliderImage2</th>
+                  <th>Description 4</th>
+                  <th>sliderImage3</th>
               </tr>
             </thead>
             <tbody>
-                @foreach($sliders as $slider)
+                @foreach($teachers as $teacher)
               <tr>
                   <td>{{$increment}}</td>
-                  <td>{{$slider->Description1}} </td>
-                  <td>{{$slider->Description2}} </td>
-              <td><img src="http://localhost/elearning/storage/app/public/slider_images/{{$slider->slider_image}}" alt=""></td>
-                  <td>{{$slider->Description3}}  </td>
-              <td><img src="http://localhost/elearning/storage/app/public/slider_images2/{{$slider->slider_image2}}" alt=""></td>
-                  <td>{{$slider->Description4}}  </td>
-                  <td><img src="http://localhost/elearning/storage/app/public/slider_images3/{{$slider->slider_image3}}" alt=""></td>
+                  <td><img src="http://localhost/elearning/storage/app/public/teacherImages/{{$teacher->teacherImage}}" alt=""></td>
+                  <td>{{$teacher->teacherName}} </td>
+
+                  <td>{{$teacher->description}}  </td>
+
                   <td>
                     <label class="badge badge-success">Activated</label>
                   </td>
@@ -45,8 +43,9 @@ courses
                   </td>
 
                   <td>
-                  <button class="btn btn-outline-primary" onclick="window.location='{{url('/edit_slider/'.$slider->id)}}'">Edit</button>
-                  <a href="deleteslider/{{$slider->id}}" class="btn btn-outline-danger" id="delete">Delete</a>
+                  <button class="btn btn-outline-primary" onclick="window.location='{{url('/edit_teacher/'.$teacher->id)}}'">Edit</button>
+                  <a href="deleteteacher/{{$teacher->id}}" class="btn btn-outline-danger" id="delete">Delete</a>
+
 
 
                 </td>

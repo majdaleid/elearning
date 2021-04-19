@@ -98,12 +98,55 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/editcourse/{id}','App\Http\Controllers\CourseController@editcourse')->name('editcourse');
 
 
-    Route::get('/addteacher','App\Http\Controllers\AdminController@addteacher')->name('addteacher');
-    Route::get('/addslider','App\Http\Controllers\AdminController@addslider')->name('addslider');
+
+      Route::post('/saveteacher','App\Http\Controllers\TeacherController@saveteacher')->name('saveteacher');
+
+
+
+
+
+/*teacher controller*/
+      Route::get('/showteachers','App\Http\Controllers\TeacherController@showteachers')->name('showteacher');
+      Route::post('/updateteacher','App\Http\Controllers\TeacherController@updateteacher')->name('updateteacher');
+  Route::get('/addteacher','App\Http\Controllers\AdminController@addteacher')->name('addteacher');
+  //    Route::get('/addteacher','App\Http\Controllers\TeacherController@addteacher')->name('addteacher');
+      Route::post('/saveteacher','App\Http\Controllers\TeacherController@saveteacher')->name('saveteacher');
+      Route::get('/edit_teacher/{id}','App\Http\Controllers\TeacherController@edit_teacher')->name('edit_teacher');
+      Route::get('/deleteteacher/{id}','App\Http\Controllers\TeacherController@deleteteacher')->name('deleteteacher');
+      /*
+      Route::get('/activate_teacher/{id}','App\Http\Controllers\sliderController@activateslider')->name('activate_slider');
+      Route::get('/unactivate_teacher/{id}','App\Http\Controllers\sliderController@unactivateslider')->name('unactivate_slider');
+*/
+
+
+
+
+
+
+
+
+
+
 
 
   Route::get('/courses','App\Http\Controllers\CourseController@courses');
-  Route::get('/slides','App\Http\Controllers\SliderController@sliders');
+
+
+
+  /*Sliders*/
+    //  Route::get('/sliders','App\Http\Controllers\SliderController@sliders')->name('sliders');
+    Route::get('/slides','App\Http\Controllers\SliderController@sliders');
+
+      Route::get('/addslider','App\Http\Controllers\SliderController@addslider')->name('addslider');
+      Route::post('/saveslider','App\Http\Controllers\SliderController@saveslider')->name('saveslider');
+      Route::get('/edit_slider/{id}','App\Http\Controllers\SliderController@editslider')->name('edit_slider');
+      Route::post('/updateslider','App\Http\Controllers\SliderController@updateslider')->name('updateslider');
+      Route::get('/deleteslider/{id}','App\Http\Controllers\sliderController@deleteslider')->name('deleteslider');
+      Route::get('/activate_slider/{id}','App\Http\Controllers\sliderController@activateslider')->name('activate_slider');
+      Route::get('/unactivate_slider/{id}','App\Http\Controllers\sliderController@unactivateslider')->name('unactivate_slider');
+
+
+
 
 
   //ckeditor

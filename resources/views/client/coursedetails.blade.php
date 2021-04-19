@@ -14,7 +14,7 @@
 
 display:flex;
 
-justify-content: space-around;
+justify-content: center;
     flex-wrap: wrap;
 }
 #box-1{
@@ -579,7 +579,7 @@ sss
                 <h4 class="price">${{$course->coursePrice}}</h4>
               </div>
               <div class="course-buy-now text-center">
-                <a href="#" class="btn radius-xl text-uppercase">Buy Now This Courses</a>
+                <a href="/checkout/{{$course->id}}" class="btn radius-xl text-uppercase">Buy Now This Courses</a>
               </div>
               <div class="teacher-bx">
                 <div class="teacher-info">

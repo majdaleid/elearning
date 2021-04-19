@@ -19,6 +19,7 @@ courses
                   <th>Image</th>
                   <th>Course Name</th>
                   <th>Price</th>
+                  <th>teacher</th>
                   <th>Description</th>
                   <th>Status</th>
                   <th>Actions</th>
@@ -31,6 +32,7 @@ courses
                   <td><img src="http://localhost/elearning/storage/app/public/courseImages/{{$course->courseImage}}" alt=""></td>
                   <td>{{$course->courseName}} </td>
                   <td>{{$course->coursePrice}} </td>
+                  <td>{{$course->teacher->teacherName}} </td>
                   <td>{{$course->courseDescription1}}  </td>
 
                   <td>

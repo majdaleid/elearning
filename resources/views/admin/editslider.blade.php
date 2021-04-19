@@ -23,28 +23,32 @@ add slider
 
 
 
-                  <form class="cmxform" id="commentForm" method="POST"   action="{{route('saveslider')}}" enctype="multipart/form-data">
+                  <form class="cmxform" id="commentForm" method="POST"   action="{{route('updateslider')}}" enctype="multipart/form-data">
                    {{csrf_field()}}
+                     <input type="hidden" id="custId" name="id" value="{{$slider->id}}}">
                       <div class="form-group">
                         <label for="cname">Description 1 </label>
-                        <input id="cname" class="form-control" name="Description1"  type="text" required>
+                        <input id="cname" class="form-control" name="Description1"  type="text"  value="{{$slider->Description1}}" required>
                       </div>
 
 
 
                       <div class="form-group">
                         <label for="cname">Description 2 </label>
-                        <input id="cname" class="form-control" name="Description2"  type="text" required>
+                        <input id="cname" class="form-control" name="Description2"  type="text" value="{{$slider->Description2}}" required>
                       </div>
 
                       <div class="form-group">
                         <label for="cname">Slider image</label>
-                        <input id="cname" class="form-control" name="slider_image"   type="file" required>
+                        <input id="cname" class="form-control" name="slider_image"   type="file" value="{{$slider->slider_image}}" required>
+                        {{$slider->slider_image}}
                       </div>
 
                       <div class="form-group">
                           <label for="cname">Description 3 </label>
-                      <textarea class="form-control" id="Description3" placeholder="Enter the Description3" name="Description3"></textarea>
+                      <textarea class="form-control" id="Description3" placeholder="Enter the Description3" name="Description3">
+                         {!! $slider->Description3 !!}
+                      </textarea>
                         </div>
 
 
@@ -56,7 +60,8 @@ add slider
 -->
                       <div class="form-group">
                         <label for="cname">Slider image2</label>
-                        <input id="cname" class="form-control" name="slider_image2"   type="file" required>
+                        <input id="cname" class="form-control" name="slider_image2"   type="file" value="{{$slider->slider_image2}}" required>
+                          {{$slider->slider_image2}}
                       </div>
 
                     <!--  <div class="form-group">
@@ -66,12 +71,15 @@ add slider
                   -->
                       <div class="form-group">
                           <label for="cname">Description 4 </label>
-                      <textarea class="form-control" id="Description4" placeholder="Enter the Description4" name="Description4"></textarea>
+                      <textarea class="form-control" id="Description4" placeholder="Enter the Description4" name="Description4">
+                           {!! $slider->Description4 !!}
+                      </textarea>
                         </div>
 
                       <div class="form-group">
                         <label for="cname">Slider image3</label>
-                        <input id="cname" class="form-control" name="slider_image3"   type="file" required>
+                        <input id="cname" class="form-control" name="slider_image3"   type="file" value="{{$slider->slider_image3}}" required>
+                          {{$slider->slider_image3}}
                       </div>
 
                         <button type="submit" class="btn btn-primary">Save</button>

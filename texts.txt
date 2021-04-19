@@ -1,0 +1,24 @@
+home
+1)picture1
+2)picture2
+2-2)description1
+
+	<div class="col-md-4 col-md-pull-8 animate-box">
+						<div class="mt">
+							<h3>We Want You To Learn English</h3>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<ul class="list-nav">
+								<li><i class="icon-check2"></i>Far far away, behind the word</li>
+								<li><i class="icon-check2"></i>There live the blind texts</li>
+								<li><i class="icon-check2"></i>Separated they live in bookmarksgrove</li>
+							</ul>
+							<p><a class="btn btn-primary btn-lg popup-vimeo btn-video" href="https://vimeo.com/channels/staffpicks/93951774"><i class="icon-play"></i> Watch Video</a></p>
+						</div>
+					</div>
+					
+					
+					
+
+
+3)picture3
+3-2)description2

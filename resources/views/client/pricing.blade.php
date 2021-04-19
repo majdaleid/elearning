@@ -22,7 +22,7 @@ pricing
 
 
 
-
+<!--
 hierrrrrrrrrrrrrrrrrrrrrr
 
 huhuhuh
@@ -80,7 +80,7 @@ huhuhuh
 	</div>
 </div>
 
-
+-->
 
 	<div id="fh5co-pricing">
 		<div class="container">

@@ -20,7 +20,7 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
-
+use App\Models\Course;
 class PaypalController extends Controller
 {
     private $_api_context;
@@ -40,6 +40,11 @@ class PaypalController extends Controller
 
     public function postPaymentWithpaypal(Request $request)
     {
+    //  dd($request);
+      $id=$request->input('id');
+    //  dd($id);
+      $course=Course::find($id);
+    //  dd($course);
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
@@ -48,14 +53,15 @@ class PaypalController extends Controller
         $item_1->setName('Product 1')
             ->setCurrency('USD')
             ->setQuantity(1)
-            ->setPrice($request->get('amount'));
-
+            ->setPrice($course->coursePrice);
+            //->setPrice($request->get('amount'));
+//$course->coursePrice
         $item_list = new ItemList();
         $item_list->setItems(array($item_1));
 
         $amount = new Amount();
         $amount->setCurrency('USD')
-            ->setTotal($request->get('amount'));
+            ->setTotal($course->coursePrice);
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)

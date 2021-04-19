@@ -409,8 +409,8 @@
                                   <div class="panel-body">
                                       <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('paypal') !!}" >
                                           {{ csrf_field() }}
-
-                                          <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
+                                      <input type="hidden" id="custId" name="id" value="{{$course->id}}">
+                                        <!--  <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
                                               <label for="amount" class="col-md-4 control-label">Enter Amount</label>
 
                                               <div class="col-md-6">
@@ -423,7 +423,7 @@
                                                   @endif
                                               </div>
                                           </div>
-
+                                      -->
                                           <div class="form-group">
                                               <div class="col-md-6 col-md-offset-4">
                                                   <button type="submit" class="btn btn-primary">
