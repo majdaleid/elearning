@@ -272,7 +272,7 @@
        border-color: rgb(23, 4, 189);
        color: white;
        width: 100%;
-       font-size: 0.7rem;
+       font-size: 1.7rem;
        margin: 4vh 0 1.5vh 0;
        padding: 1.5vh;
        border-radius: 0
@@ -424,15 +424,64 @@
                                               </div>
                                           </div>
                                       -->
-                                          <div class="form-group">
+                                      <div class="row">
+                                          <button class="btn btn-success btn-lg btn-block" type="submit">Paywith Paypal</button>
+                                      </div>
+                                      <!-- the working part in paypal -->
+                                      <!--   <div class="form-group">
                                               <div class="col-md-6 col-md-offset-4">
                                                   <button type="submit" class="btn btn-primary">
                                                       Paywith Paypal
                                                   </button>
                                               </div>
-                                          </div>
+                                          </div>-->
                                       </form>
                                   </div>
+
+
+                                  <div class="panel-heading">
+                                <b >direct bank transfer</b>
+<!--<h3 style="text-align: center;">direct bank transfer</h3> -->
+                                  </div>
+                                  <div class="panel-body">
+                                      <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('makePaymentVorkasse') !!}" >
+                                          {{ csrf_field() }}
+                                      <input type="hidden" id="custId" name="id" value="{{$course->id}}">
+                                      <pre class="tab">
+transfer directly to our bank account
+
+Time Buddels GmbH
+
+DE322504006608547777
+
+Purpose: your full name and the booked course
+Please use your full name as  the purpose
+
+Your order will be sent after the money has been
+received on our account
+
+we will send you a confirmation email after the money
+has been received on our account
+</pre>
+<div class="row">
+    <button class="btn btn-success btn-lg btn-block" type="submit">Place an order</button>
+</div>
+
+                                      </form>
+                                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                               </div>
 
 
@@ -476,7 +525,7 @@
                       </div>
                       <div class="row lower">
                           <div class="col text-left"><a href="#"><u>Add promo code</u></a></div>
-                      </div> <button class="btn">Place order</button>
+                      </div>
                       <p class="text-muted text-center">Complimentary Shipping & Returns</p>
                   </div>
               </div>
@@ -507,7 +556,7 @@
 
 
 
-
+<!--
 
 hierrrrrrrrrrrrrrrrrrrrrr
     <div class=""style="padding:13%;">
@@ -620,7 +669,7 @@ Credit card ,Master card
 
         </div>
     </div>
-
+-->
 </body>
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>

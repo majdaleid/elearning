@@ -61,6 +61,9 @@
 
               <ul class="dropdown">
                 <li><a href="user/profile">Profile</a></li>
+                @if(Auth::user()->utype==='admin')
+                  <li><a href="courses">admin Control Panel</a></li>
+                  @endif
                 <li><a href="/logout">Log Out</a></li>
               </ul>
             </li>

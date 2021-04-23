@@ -14,7 +14,8 @@ class ClientController extends Controller
 
 
     public function home(){
-      return view('client.home');
+        $courses=Course::get();
+      return view('client.home')->with('courses',$courses);
     }
 
     /*public function pricing($lang){

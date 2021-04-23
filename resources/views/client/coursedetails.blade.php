@@ -136,6 +136,9 @@ display:flex;
 	font-size:35px;
 	font-weight:500;
 }
+.post-title{
+  margin-top: 3%;
+}
 .course-features{
 	margin:0;
 	margin-bottom: 30px;
@@ -264,11 +267,16 @@ display:flex;
 @media screen  and (max-device-width: 480px) {
   body {background:red;}
   #box-2{order:-1;}
-
+  #courseimage {
+    margin-left:-17px;
+  }
   img {
     margin-left: -30%;
     width: 154%;
     margin-top: 10%;
+  }
+  .post-title{
+    margin-top: 15%;
   }
 }
 
@@ -325,14 +333,14 @@ contact
 		</div>
 	</div>
 </header>
-sss
+ &nbsp;
 <div id="box-container">
 <div id="box-1">
     <div class="courses-post">
               <div class="ttr-post-media media-effect">
                 <a href="#">
                   <!--<img src="/frontend/coursedetails/assets/images/blog/default/thum1.jpg" alt=""> -->
-                  <img src="http://localhost/elearning/storage/app/public/courseImages/{{$course->courseImage}}" alt="" style="width:89%;">
+                  <img id="courseimage" src="http://localhost/elearning/storage/app/public/courseImages/{{$course->courseImage}}" alt="" style="width:72%;">
                 </a>
               </div>
               <div class="ttr-post-info">
@@ -349,18 +357,19 @@ sss
               <div class="row">
                 <div class="col-md-12 col-lg-4">
                   <ul class="course-features">
-                    <li><i class="ti-book"></i> <span class="label">Lectures</span> <span class="value">8</span></li>
+                  <!--  <li><i class="ti-book"></i> <span class="label">Lectures</span> <span class="value">8</span></li>
                     <li><i class="ti-help-alt"></i> <span class="label">Quizzes</span> <span class="value">1</span></li>
                     <li><i class="ti-time"></i> <span class="label">Duration</span> <span class="value">60 hours</span></li>
                     <li><i class="ti-stats-up"></i> <span class="label">Skill level</span> <span class="value">Beginner</span></li>
                     <li><i class="ti-smallcap"></i> <span class="label">Language</span> <span class="value">English</span></li>
                     <li><i class="ti-user"></i> <span class="label">Students</span> <span class="value">32</span></li>
-                    <li><i class="ti-check-box"></i> <span class="label">Assessments</span> <span class="value">Yes</span></li>
+                    <li><i class="ti-check-box"></i> <span class="label">Assessments</span> <span class="value">Yes</span></li> -->
                   </ul>
                 </div>
                 <div class="col-md-12 col-lg-8">
 
                <h5 class="m-b5">Course Description</h5>
+               <br/>
                  {!! $course->description2 !!}
                   <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                   <h5 class="m-b5">Certification</h5>
@@ -382,7 +391,7 @@ sss
                             <div class="m-b30" id="curriculum">
               <h4>Curriculum</h4>
               <ul class="curriculum-list">
-                  <li>
+                <!--  <li>
                     <h5>First Level</h5>
                     <ul>
                       <li>
@@ -444,17 +453,18 @@ sss
                         <span>120 minutes</span>
                       </li>
                     </ul>
-                  </li>
+                  </li>-->
                 </ul>
             </div>
                           <div class="" id="instructor">
               <h4>Instructor</h4>
               <div class="instructor-bx">
                 <div class="instructor-author">
-                  <img src="frontend/coursedetails/assets/images/testimonials/pic1.jpg" alt="">
+                  <img  src="http://localhost/elearning/storage/app/public/teacherImages/{{$course->teacher->teacherImage}}"alt="">
+                  <!--<img src="frontend/coursedetails/assets/images/testimonials/pic1.jpg" alt="">-->
                 </div>
                 <div class="instructor-info">
-                  <h6>Keny White </h6>
+                  <h6>{{$course->teacher->teacherName }} </h6>
                   <span>Professor</span>
                   <ul class="list-inline m-tb10">
                     <li><a href="#" class="btn sharp-sm facebook"><i class="fa fa-facebook"></i></a></li>
@@ -462,7 +472,8 @@ sss
                     <li><a href="#" class="btn sharp-sm linkedin"><i class="fa fa-linkedin"></i></a></li>
                     <li><a href="#" class="btn sharp-sm google-plus"><i class="fa fa-google-plus"></i></a></li>
                   </ul>
-                  <p class="m-b0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+            <!--      <p class="m-b0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>-->
+            <p class="m-b0"> {{$course->teacher->description }}</p>
                 </div>
               </div>
               <!--
@@ -584,15 +595,16 @@ sss
               <div class="teacher-bx">
                 <div class="teacher-info">
                   <div class="teacher-thumb">
-                    <img src="/frontend/coursedetails/assets/images/testimonials/pic1.jpg" alt=""/>
+                    <img  src="http://localhost/elearning/storage/app/public/teacherImages/{{$course->teacher->teacherImage}}"alt="">
+                    <!--<img src="/frontend/coursedetails/assets/images/testimonials/pic1.jpg" alt=""/>-->
                   </div>
                   <div class="teacher-name">
-                    <h5>Hinata Hyuga</h5>
+                    <h5>{{$course->teacher->teacherName }} </h5>
                     <span>Science Teacher</span>
                   </div>
                 </div>
               </div>
-              <div class="cours-more-info">
+          <!--    <div class="cours-more-info">
                 <div class="review">
                   <span>3 Review</span>
                   <ul class="cours-star">
@@ -603,11 +615,11 @@ sss
                     <li><i class="fa fa-star"></i></li>
                   </ul>
                 </div>
-                <div class="price categories">
+          <div class="price categories">
                   <span>Categories</span>
                   <h5 class="text-primary">Frontend</h5>
-                </div>
-              </div>
+                </div> -->
+          <!--    </div> -->
               <div class="course-info-list scroll-page">
                 <ul class="navbar">
                   <li><a class="nav-link" href="#overview"><i class="ti-zip"></i>Overview</a></li>

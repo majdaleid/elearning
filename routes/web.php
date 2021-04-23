@@ -60,13 +60,77 @@ Route::post('/contact','App\Http\Controllers\ClientController@savecontact')->nam
 //})
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //return view('dashboard');
       return redirect('/home');
 })->name('dashboard');
+
+
+Route::group(['middleware' => 'AuthAdmin'], function(){
+
+
+  /*admin */
+
+      Route::get('/admin','App\Http\Controllers\AdminController@dashboard')->name('dashboard');
+
+      Route::post('/updatecourse','App\Http\Controllers\CourseController@updatecourse')->name('updatecourse');
+      Route::get('/deletecourse/{id}','App\Http\Controllers\CourseController@deletecourse')->name('deletecourse');
+
+      Route::get('/addcourses','App\Http\Controllers\AdminController@addcourses')->name('addcourses');
+      Route::post('/savecourse','App\Http\Controllers\CourseController@savecourse')->name('savecourse');
+      Route::get('/editcourse/{id}','App\Http\Controllers\CourseController@editcourse')->name('editcourse');
+
+
+
+        Route::post('/saveteacher','App\Http\Controllers\TeacherController@saveteacher')->name('saveteacher');
+
+
+
+
+
+  /*teacher controller*/
+        Route::get('/showteachers','App\Http\Controllers\TeacherController@showteachers')->name('showteacher');
+        Route::post('/updateteacher','App\Http\Controllers\TeacherController@updateteacher')->name('updateteacher');
+    Route::get('/addteacher','App\Http\Controllers\AdminController@addteacher')->name('addteacher');
+        Route::post('/saveteacher','App\Http\Controllers\TeacherController@saveteacher')->name('saveteacher');
+        Route::get('/edit_teacher/{id}','App\Http\Controllers\TeacherController@edit_teacher')->name('edit_teacher');
+        Route::get('/deleteteacher/{id}','App\Http\Controllers\TeacherController@deleteteacher')->name('deleteteacher');
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Route::get('/courses','App\Http\Controllers\CourseController@courses');
+
+
+
+    /*Sliders*/
+      Route::get('/slides','App\Http\Controllers\SliderController@sliders');
+        Route::get('/addslider','App\Http\Controllers\SliderController@addslider')->name('addslider');
+        Route::post('/saveslider','App\Http\Controllers\SliderController@saveslider')->name('saveslider');
+        Route::get('/edit_slider/{id}','App\Http\Controllers\SliderController@editslider')->name('edit_slider');
+        Route::post('/updateslider','App\Http\Controllers\SliderController@updateslider')->name('updateslider');
+        Route::get('/deleteslider/{id}','App\Http\Controllers\sliderController@deleteslider')->name('deleteslider');
+        Route::get('/activate_slider/{id}','App\Http\Controllers\sliderController@activateslider')->name('activate_slider');
+        Route::get('/unactivate_slider/{id}','App\Http\Controllers\sliderController@unactivateslider')->name('unactivate_slider');
+
+
+
+
+
+
+});
 
 
 //Route::get('/', [PaymentController::class, 'checkout']);
@@ -82,70 +146,10 @@ Route::group(['middleware' => 'auth'], function(){
   //Route::get('/checkout', [PaymentController::class, 'checkout']);
     Route::get('/checkout/{id?}', [PaymentController::class, 'checkout']);
   Route::post('/checkout/transaction', [PaymentController::class, 'makePayment'])->name('make-payment');
+  Route::post('/checkout/Vorkassetransaction', [PaymentController::class, 'makePaymentVorkasse'])->name('makePaymentVorkasse');
+
 
 });
-
-
-/*admin */
-
-    Route::get('/admin','App\Http\Controllers\AdminController@dashboard')->name('dashboard');
-
-    Route::post('/updatecourse','App\Http\Controllers\CourseController@updatecourse')->name('updatecourse');
-    Route::get('/deletecourse/{id}','App\Http\Controllers\CourseController@deletecourse')->name('deletecourse');
-
-    Route::get('/addcourses','App\Http\Controllers\AdminController@addcourses')->name('addcourses');
-    Route::post('/savecourse','App\Http\Controllers\CourseController@savecourse')->name('savecourse');
-    Route::get('/editcourse/{id}','App\Http\Controllers\CourseController@editcourse')->name('editcourse');
-
-
-
-      Route::post('/saveteacher','App\Http\Controllers\TeacherController@saveteacher')->name('saveteacher');
-
-
-
-
-
-/*teacher controller*/
-      Route::get('/showteachers','App\Http\Controllers\TeacherController@showteachers')->name('showteacher');
-      Route::post('/updateteacher','App\Http\Controllers\TeacherController@updateteacher')->name('updateteacher');
-  Route::get('/addteacher','App\Http\Controllers\AdminController@addteacher')->name('addteacher');
-  //    Route::get('/addteacher','App\Http\Controllers\TeacherController@addteacher')->name('addteacher');
-      Route::post('/saveteacher','App\Http\Controllers\TeacherController@saveteacher')->name('saveteacher');
-      Route::get('/edit_teacher/{id}','App\Http\Controllers\TeacherController@edit_teacher')->name('edit_teacher');
-      Route::get('/deleteteacher/{id}','App\Http\Controllers\TeacherController@deleteteacher')->name('deleteteacher');
-      /*
-      Route::get('/activate_teacher/{id}','App\Http\Controllers\sliderController@activateslider')->name('activate_slider');
-      Route::get('/unactivate_teacher/{id}','App\Http\Controllers\sliderController@unactivateslider')->name('unactivate_slider');
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-  Route::get('/courses','App\Http\Controllers\CourseController@courses');
-
-
-
-  /*Sliders*/
-    //  Route::get('/sliders','App\Http\Controllers\SliderController@sliders')->name('sliders');
-    Route::get('/slides','App\Http\Controllers\SliderController@sliders');
-
-      Route::get('/addslider','App\Http\Controllers\SliderController@addslider')->name('addslider');
-      Route::post('/saveslider','App\Http\Controllers\SliderController@saveslider')->name('saveslider');
-      Route::get('/edit_slider/{id}','App\Http\Controllers\SliderController@editslider')->name('edit_slider');
-      Route::post('/updateslider','App\Http\Controllers\SliderController@updateslider')->name('updateslider');
-      Route::get('/deleteslider/{id}','App\Http\Controllers\sliderController@deleteslider')->name('deleteslider');
-      Route::get('/activate_slider/{id}','App\Http\Controllers\sliderController@activateslider')->name('activate_slider');
-      Route::get('/unactivate_slider/{id}','App\Http\Controllers\sliderController@unactivateslider')->name('unactivate_slider');
-
-
 
 
 
@@ -170,7 +174,7 @@ Route::group(['middleware' => 'auth'], function(){
 //blogssss
 
 
-Route::get('/home', [App\Http\Controllers\PostController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\PostController::class, 'index'])->name('home');
 Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create']);
 Route::post('/post', [App\Http\Controllers\PostController::class, 'store']);
 Route::get('/post/{post}/edit', [App\Http\Controllers\PostController::class, 'edit']);

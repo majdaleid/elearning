@@ -92,4 +92,31 @@ class PaymentController extends Controller
             return view('admin.orders')->with('orders',$orders);
         }
 
+
+
+
+        public function makePaymentVorkasse(Request $request)
+        {
+
+              $id=$request->input('id');
+
+      $course=Course::find($id);
+
+
+            $order=new Order();
+                        //  $order->name=$request->input('fullname2');
+                        //  $order->address=$request->input('address2');
+      $order->name=Auth::user()->name;
+        $order->address="no address , Vorkasse";
+                          //$order->cart=serialize($cart);
+                          $order->cart=$course->courseName;
+                          $order->payment_id=0;
+
+                          $order->save();
+
+            Session::flash('success', 'we will review the payment soon and we will send you a confirmation email .');
+
+            return back();
+        }
+
 }
