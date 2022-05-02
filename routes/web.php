@@ -90,7 +90,6 @@ Route::group(['middleware' => 'AuthAdmin'], function(){
 
 
 
-
   /*teacher controller*/
         Route::get('/showteachers','App\Http\Controllers\TeacherController@showteachers')->name('showteacher');
         Route::post('/updateteacher','App\Http\Controllers\TeacherController@updateteacher')->name('updateteacher');

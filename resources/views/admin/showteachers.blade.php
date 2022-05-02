@@ -29,7 +29,11 @@ courses
                 @foreach($teachers as $teacher)
               <tr>
                   <td>{{$increment}}</td>
-                  <td><img src="http://localhost/elearning/storage/app/public/teacherImages/{{$teacher->teacherImage}}" alt=""></td>
+                  <td>
+                  <!--   <img src="{{ asset('/public/teacherImages/'.$teacher->teacherImage) }}" />-->
+                    <img src="http://localhost/elearning/storage/app/public/teacherImages/{{$teacher->teacherImage}}" alt="">
+
+                  </td>
                   <td>{{$teacher->teacherName}} </td>
 
                   <td>{{$teacher->description}}  </td>

@@ -166,3 +166,13 @@ return view('admin.editcourse')->with('course',$course);
         }
 
 }
+
+
+//Todo
+
+//Adding teachers not working
+
+//adding courses not working 
+
+//template
+

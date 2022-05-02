@@ -315,77 +315,6 @@
 
    #cvv:hover {}
    </style>
-   <style>
-
-   #stripe{
-   display:none;
-   }
-
-   #bankTransfer{
-   display:none;
-
-   }
-
-#buttons
-{
-  margin-left: 2%;
-margin-top: 2%;
-}
-
-@media screen  and (max-device-width: 480px) {
-  #buttons
-  {
-  margin-top: 9%;
-  }
-
-}
-
-   .bold {
-       font-weight: bold
-   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-</style>
-<script>
-$(document).ready(function(){
- $("#klickpaypal").click(function(){
-   $("#paypal").show();
-    $("#stripe").hide();
-     $("#bankTransfer").hide();
- });
-
-});
-$(document).ready(function(){
- $("#klickstripe").click(function(){
-   $("#stripe").show();
-   $("#paypal").hide();
-   $("#bankTransfer").hide();
- });
-
-});
-
-$(document).ready(function(){
- $("#klickbankTransfer").click(function(){
-   $("#bankTransfer").show();
-    $("#stripe").hide();
-     $("#paypal").hide();
- });
-
-});
-</script>
-
-
 </head>
 <!-- navigation bar -->
 
@@ -396,13 +325,8 @@ $(document).ready(function(){
 
 
   <div class="container" class="card">
-      <div class="card-top border-bottom text-center"> <a href="/home"> Back to shop</a> <span id="logo">t-virtuary.com</span> </div>
+      <div class="card-top border-bottom text-center"> <a href="#"> Back to shop</a> <span id="logo">BBBootstrap.com</span> </div>
       <div class="card-body">
-          <div id="buttons">
-        <button id="klickpaypal"  style="background-color:#1704BD;" class="fas fa-mobile-alt mr-4 btn-success" class="fas fa-credit-card mr-2 ">paypal</button>
-        <button id="klickstripe" style="background-color:#1704BD;" class="fas fa-mobile-alt mr-4 btn-success" class="fab fa-paypal mr-2">stripe</button>
-        <button id="klickbankTransfer" style="background-color:#1704BD;" class="fas fa-mobile-alt mr-4 btn-success">Bank</button>
-       </div>
           <div class="row upper"> <span><i class="fa fa-check-circle-o"></i> Shopping bag</span> <span><i class="fa fa-check-circle-o"></i> Order details</span> <span id="payment"><span id="three">3</span>Payment</span> </div>
           <div class="row">
               <div class="col-md-7">
@@ -422,7 +346,7 @@ $(document).ready(function(){
 
 
 
-                      <form id="stripe" role="form" action="{{ route('make-payment') }}" method="post" class="stripe-payment"
+                      <form role="form" action="{{ route('make-payment') }}" method="post" class="stripe-payment"
                             data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
                             id="stripe-payment">
                              @csrf
@@ -470,7 +394,8 @@ $(document).ready(function(){
 
                               </form>
 
-                               <div class="panel panel-default" style="margin-top: 60px;">
+<h3 style="text-align: center;">OR Pay with Paypal</h3>
+                              <div class="panel panel-default" style="margin-top: 60px;">
 
                                   @if ($message = Session::get('success'))
                                   <div class="custom-alerts alert alert-success fade in">
@@ -487,7 +412,6 @@ $(document).ready(function(){
                                   </div>
                                   <?php Session::forget('error');?>
                                   @endif
-                                  <div id="paypal">
                                   <div class="panel-heading"><b>Paywith Paypal</b></div>
                                   <div class="panel-body">
                                       <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('paypal') !!}" >
@@ -497,14 +421,11 @@ $(document).ready(function(){
                                       <div class="row">
                                           <button class="btn btn-success btn-lg btn-block" type="submit">Paywith Paypal</button>
                                       </div>
-
+                                       
                                       </form>
                                   </div>
 
-                                </div>
 
-
-                                <div id="bankTransfer">
                                   <div class="panel-heading">
                                 <b >direct bank transfer</b>
 <!--<h3 style="text-align: center;">direct bank transfer</h3> -->
@@ -536,7 +457,6 @@ has been received on our account
                                       </form>
                                   </div>
 
-</div>
 
 
 
