@@ -13,9 +13,9 @@ class AddUtypeToUsers extends Migration
      */
     public function up()
     {
-       /* Schema::table('users', function (Blueprint $table) {
-            $table->string('utype')->default('user')->comment('admin for Admin and user for Customer');
-        });*/
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('utype')->default('admin')->comment('admin for Admin and user for Customer');
+        });
     }
 
     /**
