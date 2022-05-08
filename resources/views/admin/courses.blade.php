@@ -29,7 +29,7 @@ courses
                 @foreach($courses as $course)
               <tr>
                   <td>{{$increment}}</td>
-                  <td><img src="http://localhost/elearning/storage/app/public/courseImages/{{$course->courseImage}}" alt=""></td>
+                  <td> <img  src="{{ asset('storage/courseImages/'.$course->courseImage) }}" alt=""></td>
                   <td>{{$course->courseName}} </td>
                   <td>{{$course->coursePrice}} </td>
                   <td>{{$course->teacher->teacherName}} </td>

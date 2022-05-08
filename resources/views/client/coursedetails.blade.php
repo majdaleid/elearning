@@ -460,7 +460,7 @@ contact
               <h4>Instructor</h4>
               <div class="instructor-bx">
                 <div class="instructor-author">
-                  <img  src="http://localhost/elearning/storage/app/public/teacherImages/{{$course->teacher->teacherImage}}"alt="">
+                  <img  src= "{{ asset('storage/teacherImages/'.$course->teacher->teacherImage) }}" alt="">
                   <!--<img src="frontend/coursedetails/assets/images/testimonials/pic1.jpg" alt="">-->
                 </div>
                 <div class="instructor-info">
