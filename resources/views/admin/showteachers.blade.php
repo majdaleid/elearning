@@ -31,8 +31,8 @@ courses
                   <td>{{$increment}}</td>
                   <td>
                   
-                     
-                       <img src= "{{ url('storage/app/public/teacherImages/'.$teacher->teacherImage) }}" alt="">
+                   
+                       <img  src="{{ asset('storage/app/public/teacherImages/'.$teacher->teacherImage) }}" alt="">
 
                   </td>
                   <td>{{$teacher->teacherName}} </td>
