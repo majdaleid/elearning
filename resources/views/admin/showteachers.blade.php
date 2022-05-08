@@ -32,7 +32,7 @@ courses
                   <td>
                  
                      
-                       <img src= "{{ url('elearning/storage/app/public/teacherImages/'.$teacher->teacherImage) }}" alt="">
+                       <img src= "{{ url('/storage/app/public/teacherImages/'.$teacher->teacherImage) }}" alt="">
 
                   </td>
                   <td>{{$teacher->teacherName}} </td>
