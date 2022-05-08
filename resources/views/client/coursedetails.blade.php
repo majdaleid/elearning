@@ -340,7 +340,7 @@ contact
               <div class="ttr-post-media media-effect">
                 <a href="#">
                   <!--<img src="/frontend/coursedetails/assets/images/blog/default/thum1.jpg" alt=""> -->
-                  <img id="courseimage" src="http://localhost/elearning/storage/app/public/courseImages/{{$course->courseImage}}" alt="" style="width:72%;">
+                  <img id="courseimage"  src="{{ asset('storage/courseImages/'.$course->courseImage) }}" alt="" style="width:72%;">
                 </a>
               </div>
               <div class="ttr-post-info">
@@ -460,7 +460,7 @@ contact
               <h4>Instructor</h4>
               <div class="instructor-bx">
                 <div class="instructor-author">
-                  <img  src="http://localhost/elearning/storage/app/public/teacherImages/{{$course->teacher->teacherImage}}"alt="">
+                  <img  src= "{{ url('storage/app/public/teacherImages/'.$course->teacher->teacherImage) }}" alt="">
                   <!--<img src="frontend/coursedetails/assets/images/testimonials/pic1.jpg" alt="">-->
                 </div>
                 <div class="instructor-info">
