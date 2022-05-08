@@ -32,7 +32,7 @@ courses
                   <td>
                   
                    
-                       <img  src="{{ asset('storage/app/public/teacherImages/'.$teacher->teacherImage) }}" alt="">
+                       <img  src="{{ asset('storage/teacherImages/'.$teacher->teacherImage) }}" alt="">
 
                   </td>
                   <td>{{$teacher->teacherName}} </td>
