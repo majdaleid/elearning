@@ -30,8 +30,9 @@ courses
               <tr>
                   <td>{{$increment}}</td>
                   <td>
-                  <!--   <img src="{{ asset('/public/teacherImages/'.$teacher->teacherImage) }}" />-->
-                    <img src="http://localhost/elearning/storage/app/public/teacherImages/{{$teacher->teacherImage}}" alt="">
+                 
+                     
+                       <img src= "{{ url('elearning/storage/app/public/teacherImages/'.$teacher->teacherImage) }}" alt="">
 
                   </td>
                   <td>{{$teacher->teacherName}} </td>

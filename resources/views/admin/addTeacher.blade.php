@@ -16,30 +16,37 @@
                   {{Session::get('status1')}}
                 </div>
                 @endif
-                  <form class="cmxform" id="commentForm" method="POST" action="{{route('saveteacher')}}" enctype="multipart/form-data">
-                   {{csrf_field()}}
-                      <div class="form-group">
-                        <label for="cname">Teacher Name</label>
-                        <input id="cname" class="form-control" name="teacherName" minlength="2" type="text" required>
+                 
+
+
+          <form action="{{ route('image.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+              <label for="cname">Teacher Name</label>
+              <input id="cname" class="form-control" name="teacherName" minlength="2" type="text" required>
 
 
 
-                 <label> Description about the Teacher</label>
+       <label> Description about the Teacher</label>
 
-                  <div class="form-group">
-                  <textarea class="form-control" id="description" placeholder="Enter the description" name="description"></textarea>
-                    </div>
-                            <label for="cname">teacher image</label>
-                            <input id="cname" class="form-control" name="teacherImage"   type="file" required>
-
-
-                      </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                  </form>
-                </div>
-              </div>
-            </div>
+        <div class="form-group">
+        <textarea class="form-control" id="description" placeholder="Enter the description" name="description"></textarea>
           </div>
+                  <label for="cname">teacher image</label>
+                  <input id="cname" class="form-control" name="profile_image"   type="file" required>
+
+
+            </div>
+              <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+        </form>      
+
+
+
 @endsection
 @section('scripts')
 
@@ -50,11 +57,11 @@
 
 
    <script>
-          ClassicEditor
+       /*   ClassicEditor
              .create( document.querySelector( '#description' ) )
               .catch( error => {
                  console.error( error );
-               } );
+               } );*/
        </script>
  <script src="backend/js/bt-maxLength.js"></script>
 

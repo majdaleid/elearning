@@ -94,12 +94,19 @@ Route::group(['middleware' => 'AuthAdmin'], function(){
         Route::get('/showteachers','App\Http\Controllers\TeacherController@showteachers')->name('showteacher');
         Route::post('/updateteacher','App\Http\Controllers\TeacherController@updateteacher')->name('updateteacher');
     Route::get('/addteacher','App\Http\Controllers\AdminController@addteacher')->name('addteacher');
-        Route::post('/saveteacher','App\Http\Controllers\TeacherController@saveteacher')->name('saveteacher');
+       // Route::post('/saveteacher','App\Http\Controllers\TeacherController@saveteacher')->name('saveteacher');
         Route::get('/edit_teacher/{id}','App\Http\Controllers\TeacherController@edit_teacher')->name('edit_teacher');
         Route::get('/deleteteacher/{id}','App\Http\Controllers\TeacherController@deleteteacher')->name('deleteteacher');
 
 
+//For adding an image
+//Route::get('/add-image',[TeacherController::class,'addImage'])->name('images.add');
 
+//For storing an image
+Route::post('/store-image','App\Http\Controllers\TeacherController@storeImage')->name('image.store');
+
+//For showing an image
+//Route::get('/view-image',[TeacherController::class,'viewImage'])->name('images.view');
 
 
 

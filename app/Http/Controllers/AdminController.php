@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function addteacher(){
     //  dd(33);
-      return view('admin.addteacher');
+      return view('admin.addTeacher');
     }
 
     public function addslider(){
